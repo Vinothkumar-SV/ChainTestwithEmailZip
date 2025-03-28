@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-03-28T23:52:33 IST" name="Suite" finished-at="2025-03-28T23:52:40 IST" duration-ms="6577">
+    <groups>
+    </groups>
+    <test started-at="2025-03-28T23:52:33 IST" name="Test" finished-at="2025-03-28T23:52:40 IST" duration-ms="6577">
+      <class name="utils.ReportAutomation">
+        <test-method is-config="true" signature="preMethod()[pri:0, instance:utils.ReportAutomation@7922d892]" started-at="2025-03-28T23:52:33 IST" name="preMethod" finished-at="2025-03-28T23:52:33 IST" duration-ms="13" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- preMethod -->
+        <test-method signature="sendReport()[pri:0, instance:utils.ReportAutomation@7922d892]" started-at="2025-03-28T23:52:33 IST" name="sendReport" finished-at="2025-03-28T23:52:39 IST" duration-ms="5871" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- sendReport -->
+        <test-method is-config="true" signature="attachScreenshot(org.testng.ITestResult)[pri:0, instance:utils.ReportAutomation@7922d892]" started-at="2025-03-28T23:52:39 IST" name="attachScreenshot" finished-at="2025-03-28T23:52:39 IST" duration-ms="255" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=sendReport status=SUCCESS method=ReportAutomation.sendReport()[pri:0, instance:utils.ReportAutomation@7922d892] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- attachScreenshot -->
+        <test-method is-config="true" signature="renamedReport()[pri:0, instance:utils.ReportAutomation@7922d892]" started-at="2025-03-28T23:52:39 IST" name="renamedReport" finished-at="2025-03-28T23:52:40 IST" duration-ms="364" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- renamedReport -->
+        <test-method is-config="true" signature="last()[pri:0, instance:utils.ReportAutomation@7922d892]" started-at="2025-03-28T23:52:40 IST" name="last" finished-at="2025-03-28T23:52:45 IST" duration-ms="5678" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- last -->
+      </class> <!-- utils.ReportAutomation -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>

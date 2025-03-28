@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="TestNG Regression Suite" verbose="3" thread-count="3"
+	parallel="tests">
+
+	<listeners>
+		<listener
+			class-name="com.aventstack.chaintest.plugins.ChainTestListener" />
+	</listeners>
+
+
+	<test name="OrangeHRM Test">
+		<parameter name="url"
+			value="https://www.orangehrm.com/30-day-free-trial/" />
+		<parameter name="browser" value="chrome" />
+
+		<classes>
+			<class name="emailBase.BaseTest" />
+		</classes>
+	</test>
+
+
+
+</suite>
