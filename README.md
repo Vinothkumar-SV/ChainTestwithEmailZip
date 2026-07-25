@@ -228,6 +228,7 @@ G[Recipient Mailbox]
 ## 🚀 CI/CD Architecture
 
 ```mermaid
+
 flowchart LR
 
 Developer
@@ -268,6 +269,7 @@ Stakeholders
 ## ☁️ Deployment Architecture
 
 ```mermaid
+
 graph TD
 
 Developer
@@ -304,6 +306,7 @@ Recipients
 ## 🛡️ Security Flow
 
 ```mermaid
+
 graph LR
 
 Credentials
