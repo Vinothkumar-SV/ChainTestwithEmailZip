@@ -62,9 +62,268 @@ C --> D[JavaMail]
 D --> E[Gmail SMTP]
 E --> F[Stakeholders]
 
+## 🏛️ Solution Architecture
 
+```mermaid
+graph TD
+
+A[👨‍💻 QA Engineer] --> B[🧪 Selenium/TestNG Tests]
+
+B --> C[📊 ChainTest Report Generator]
+
+C --> D[📂 Report Directory]
+
+D --> E[📦 ZIP Utility]
+
+E --> F[📧 Mail Sender]
+
+F --> G[📨 Gmail SMTP Server]
+
+G --> H[👥 Stakeholders]
+
+style A fill:#D6EAF8
+style B fill:#FCF3CF
+style C fill:#D5F5E3
+style D fill:#FADBD8
+style E fill:#EBDEF0
+style F fill:#F9E79F
+style G fill:#F5CBA7
+style H fill:#D4EFDF
+```
 ---
+## 🏗️ Component Architecture
 
+```mermaid
+graph LR
+
+subgraph Automation Framework
+
+A[TestNG]
+
+B[Selenium]
+
+C[ChainTest]
+
+end
+
+subgraph Utilities
+
+D[ZipUtils]
+
+E[MailSender]
+
+F[TestReportMailer]
+
+end
+
+subgraph External Services
+
+G[Gmail SMTP]
+
+H[Recipients]
+
+end
+
+A --> B
+
+B --> C
+
+C --> D
+
+D --> E
+
+E --> G
+
+G --> H
+
+F --> E
+```
+## 🔄 Internal Class Diagram
+
+```mermaid
+classDiagram
+
+class ReportAutomation{
++executeTests()
++generateReport()
+}
+
+class ZipUtils{
++zipFolder()
++createZip()
+}
+
+class MailSender{
++sendMail()
+}
+
+class TestReportMailer{
++mailReport()
+}
+
+ReportAutomation --> ZipUtils
+
+ZipUtils --> MailSender
+
+TestReportMailer --> MailSender
+```
+
+## 📦 Package Structure
+
+```mermaid
+graph TD
+
+Project
+
+Project --> src
+
+src --> main
+
+main --> reports
+
+main --> utils
+
+utils --> MailSender
+
+utils --> ZipUtils
+
+utils --> ReportAutomation
+
+Project --> pom
+
+Project --> test-output
+```
+## 📧 Email Delivery Architecture
+
+```mermaid
+flowchart LR
+
+A[Test Execution]
+
+-->
+
+B[Generate Report]
+
+-->
+
+C[Compress Report]
+
+-->
+
+D[Create Email]
+
+-->
+
+E[Attach ZIP]
+
+-->
+
+F[Gmail SMTP]
+
+-->
+
+G[Recipient Mailbox]
+```
+
+## 🚀 CI/CD Architecture
+
+```mermaid
+flowchart LR
+
+Developer
+
+-->
+
+GitHub
+
+-->
+
+GitHub Actions
+
+-->
+
+Maven Build
+
+-->
+
+Selenium Tests
+
+-->
+
+ChainTest Report
+
+-->
+
+ZIP
+
+-->
+
+Email
+
+-->
+
+Stakeholders
+```
+
+## ☁️ Deployment Architecture
+
+```mermaid
+graph TD
+
+Developer
+
+-->
+
+GitHub Repository
+
+-->
+
+CI/CD Server
+
+-->
+
+Automation Framework
+
+-->
+
+ChainTest Report
+
+-->
+
+ZIP Archive
+
+-->
+
+SMTP Server
+
+-->
+
+Recipients
+```
+
+## 🛡️ Security Flow
+
+```mermaid
+graph LR
+
+Credentials
+
+-->
+
+SMTP Authentication
+
+-->
+
+TLS Encryption
+
+-->
+
+Gmail SMTP
+
+-->
+
+Recipient
+```
 # 🔄 End-to-End Workflow
 
 mermaid
