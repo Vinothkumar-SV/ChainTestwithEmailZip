@@ -1,130 +1,280 @@
+# 🚀 ChainTest Automation Report with Email & ZIP Delivery
 
-# 🧪 ChainTest with Email & ZIP Automation
+<p align="center">
 
-## 📖 Overview
-**ChainTestwithEmailZip** is an automation testing framework designed to execute a sequence of test cases (chained execution) and automatically email the test results as a **ZIP attachment**.  
-This framework demonstrates automation best practices using **Selenium with Java**, **TestNG**, and **Maven**, integrated with **Extent Reports** and **JavaMail API** for result sharing.
+![Java](https://img.shields.io/badge/Java-17-orange?logo=openjdk)
+![Selenium](https://img.shields.io/badge/Selenium-4.x-43B02A?logo=selenium)
+![TestNG](https://img.shields.io/badge/TestNG-Framework-red)
+![Maven](https://img.shields.io/badge/Maven-Build-blue?logo=apachemaven)
+![ChainTest](https://img.shields.io/badge/Reporting-ChainTest-purple)
+![JavaMail](https://img.shields.io/badge/Email-JavaMail-yellow)
+![License](https://img.shields.io/badge/License-MIT-success)
 
----
+</p>
 
-## 🚀 Key Features
-- 🔗 **Chained Test Execution** – Automatically triggers dependent tests in a logical order.
-- 📬 **Email Notification** – Sends result reports directly to configured email recipients after execution.
-- 🗜️ **ZIP Compression** – Compresses test reports and logs before sending.
-- 🧾 **Custom Reports** – Integrated with **Extent Reports** for visual test analytics.
-- ⚙️ **Configurable Properties** – Email credentials, recipient list, and file paths can be modified easily in `config.properties`.
-- 💡 **Reusable Utility Classes** – For Excel data reading, property management, and screenshot capture.
+# 📖 Overview
 
----
-
-## 🧰 Tech Stack
-
-| Category | Tools / Libraries |
-|-----------|-------------------|
-| **Language** | Java |
-| **Automation Framework** | Selenium WebDriver, TestNG |
-| **Build Tool** | Maven |
-| **Reporting** | Extent Reports |
-| **Email Utility** | JavaMail API |
-| **File Management** | Apache Commons IO / ZIP |
-| **Data Handling** | Excel Reader (Apache POI) |
+An enterprise-ready Java automation utility that automatically generates ChainTest reports, compresses them into a ZIP archive, and emails the report to stakeholders after execution.
 
 ---
 
-## 📁 Project Structure
+# 📑 Table of Contents
 
+- 🎯 Features
+- 🏗️ Architecture
+- 🔄 Workflow
+- 🛠️ Tech Stack
+- 📁 Project Structure
+- ⚙️ Installation
+- 🔐 Configuration
+- ▶️ Execution
+- 📧 Email Automation
+- 📦 ZIP Utility
+- 🚀 CI/CD
+- 🛡️ Security
+- 🧩 Troubleshooting
+- 🛣️ Roadmap
+- 🤝 Contribution
+- 📜 License
+
+---
+
+# 🎯 Features
+
+- ✅ Automatic ChainTest Report Generation
+- 📦 Automatic ZIP Compression
+- 📧 Email Delivery with Attachment
+- ☁️ Gmail SMTP Integration
+- ⚡ Maven Build
+- 🧪 TestNG Support
+- 🏢 Enterprise Ready
+- 🔄 CI/CD Friendly
+
+---
+
+# 🏗️ Architecture
+
+mermaid
+flowchart LR
+A[Test Execution] --> B[ChainTest Report]
+B --> C[ZIP Utility]
+C --> D[JavaMail]
+D --> E[Gmail SMTP]
+E --> F[Stakeholders]
+
+
+---
+
+# 🔄 End-to-End Workflow
+
+mermaid
+sequenceDiagram
+participant QA
+participant Framework
+participant ZIP
+participant Email
+
+QA->>Framework: Execute Tests
+Framework->>Framework: Generate Report
+Framework->>ZIP: Compress Report
+ZIP->>Email: Attach ZIP
+Email->>QA: Send Report
+
+
+---
+
+# 🛠️ Technology Stack
+
+| Technology | Purpose |
+|------------|---------|
+| Java 17 | Programming Language |
+| Selenium 4 | Browser Automation |
+| TestNG | Test Framework |
+| Maven | Dependency Management |
+| ChainTest | Reporting |
+| JavaMail | Email |
+| ZIP Utilities | Compression |
+
+---
+
+# 📁 Project Structure
+
+text
 ChainTestwithEmailZip
 │
-├── src/test/java/
-│ ├── base/ # Base setup classes (WebDriver, configurations)
-│ ├── tests/ # Test classes with chained logic
-│ ├── utils/ # Utility classes (Excel, Email, ZIP, Screenshot)
-│ └── reports/ # Extent Report HTML output
-│
-├── src/main/resources/
-│ ├── config.properties # Environment & email configuration
-│
-├── pom.xml # Maven dependencies and build configuration
-├── testng.xml # Test suite definition
-└── README.md # Project documentation
+├── src
+│   ├── main
+│   ├── utils
+│   │   ├── MailSender.java
+│   │   ├── ZipUtils.java
+│   │   └── ReportAutomation.java
+│   └── resources
+├── test-output
+├── pom.xml
+└── README.md
+
 
 ---
 
-## ⚙️ Configuration Setup
+# ⚙️ Installation
 
-### 1️⃣ Update Config Properties  
-In `src/main/resources/config.properties`, set up:
-```properties
-email.username=yourEmail@gmail.com
-email.password=yourPassword
-email.to=receiverEmail@gmail.com
-report.path=./reports
-zip.path=./reports.zip
-2️⃣ Add Dependencies (pom.xml)
-Make sure the following dependencies are included:
-<dependencies>
-    <dependency>
-        <groupId>org.seleniumhq.selenium</groupId>
-        <artifactId>selenium-java</artifactId>
-        <version>4.25.0</version>
-    </dependency>
-    <dependency>
-        <groupId>org.testng</groupId>
-        <artifactId>testng</artifactId>
-        <version>7.10.0</version>
-        <scope>test</scope>
-    </dependency>
-    <dependency>
-        <groupId>com.aventstack</groupId>
-        <artifactId>extentreports</artifactId>
-        <version>5.1.1</version>
-    </dependency>
-    <dependency>
-        <groupId>javax.mail</groupId>
-        <artifactId>mail</artifactId>
-        <version>1.4.7</version>
-    </dependency>
-</dependencies>
-________________________________________
-🧩 How to Run the Tests
-🖥️ From IDE (Eclipse/IntelliJ)
-1.	Right-click on testng.xml
-2.	Select Run As → TestNG Suite
-💻 From Command Line
-mvn clean test
-📧 After Execution
-•	Test results are generated inside /reports
-•	A .zip file is created automatically
-•	Email is sent to the configured recipient with the report attached
-________________________________________
-📸 Example Output
-•	Extent Report: reports/ExecutionReport.html
-•	Zipped File: reports.zip
-•	Email Subject: Automation Test Report - Execution Summary
-________________________________________
-🤝 Contributions
-You’re welcome to contribute!
-•	Fork the repository
-•	Create a new branch (feature/your-feature-name)
-•	Commit changes and raise a pull request
-________________________________________
-👨‍💻 Author
-Vinoth Kumar S
-SDET | Automation Enthusiast | Selenium with Java | TestLeaf
-📧 vinothkumar.sv@gmail.com
-🔗 GitHub Profile
-________________________________________
-🏁 Future Enhancements
-•	🔄 Jenkins CI/CD integration for scheduled runs
-•	🐳 Docker containerization for distributed execution
-•	☁️ AWS S3 upload for report storage
-•	💬 Slack / Teams notification integration
-________________________________________
-⭐ If you found this project helpful, don’t forget to give it a star! ⭐
+## Clone Repository
+
+bash
+git clone https://github.com/Vinothkumar-SV/ChainTestwithEmailZip.git
+cd ChainTestwithEmailZip
+
+## Build
+
+bash
+mvn clean install
+
+
+## Execute
+
+bash
+mvn test
+
 
 ---
 
-Would you like me to:
-1. Add a badges section (for build status, license, and technologies), or  
-2. Include a sample screenshot/report image preview inside the README (for better presentation on GitHub)?
+# 🔐 Gmail Configuration
 
+Enable:
+
+- ✅ Two-Step Verification
+- ✅ App Password
+
+Configure SMTP:
+
+properties
+mail.smtp.host=smtp.gmail.com
+mail.smtp.port=587
+mail.smtp.auth=true
+mail.smtp.starttls.enable=true
+
+
+Update your sender details inside `MailSender.java`.
+
+---
+
+# 📧 Email Automation Flow
+
+mermaid
+graph TD
+A[Generate Report] --> B[Create ZIP]
+B --> C[Compose Email]
+C --> D[Attach ZIP]
+D --> E[Send Email]
+E --> F[Recipient Inbox]
+
+---
+
+# 📦 ZIP Generation
+
+The framework automatically:
+
+- Compresses report folders
+- Preserves folder hierarchy
+- Creates lightweight ZIP archives
+- Attaches ZIP to email
+
+---
+
+# 🚀 CI/CD Integration
+
+Supported Platforms:
+
+- 🟢 Jenkins
+- 🟣 GitHub Actions
+- 🔵 Azure DevOps
+- 🟠 GitLab CI
+
+Example GitHub Actions:
+
+yaml
+name: Java Automation
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - run: mvn clean test
+
+---
+
+# 🛡️ Security Best Practices
+
+- 🔒 Never hardcode passwords
+- 🔑 Use Gmail App Passwords
+- 🌱 Store secrets in environment variables
+- 🚫 Exclude `.env` and credentials from Git
+- 🔄 Rotate credentials periodically
+
+---
+
+# 🧩 Troubleshooting
+
+| Problem | Solution |
+|---------|----------|
+| Authentication Failed | Verify Gmail App Password |
+| Email Not Sent | Check SMTP Host and Port |
+| ZIP Missing | Verify report path |
+| Report Missing | Confirm ChainTest execution |
+
+---
+
+# 🛣️ Future Roadmap
+
+- ☁️ Outlook OAuth Support
+- 📊 Allure Report Integration
+- 📈 Extent Report Support
+- 💬 Microsoft Teams Notifications
+- 📱 Slack Notifications
+- 📄 HTML Email Templates
+- 🔁 Retry Mechanism
+- 🔐 Azure Key Vault Integration
+
+---
+
+# 🤝 Contribution
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit changes
+4. Push to GitHub
+5. Create a Pull Request
+
+---
+
+# 📜 License
+
+This project is licensed under the **MIT License**.
+
+---
+
+# 👨‍💻 Author
+
+**Vinoth Kumar S**
+
+Senior Automation Engineer | QA Mentor | AI Solutions Enthusiast
+
+GitHub: https://github.com/Vinothkumar-SV
+
+---
+
+# ⭐ Support
+
+If this project helped you, please consider giving it a **⭐ Star** on GitHub.
+
+Happy Testing! 🚀
