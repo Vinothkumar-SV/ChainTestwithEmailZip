@@ -228,105 +228,89 @@ G[Recipient Mailbox]
 ## 🚀 CI/CD Architecture
 
 ```mermaid
-
 flowchart LR
 
-Developer
+A["👨‍💻 Developer"]
+B["📁 GitHub Repository"]
+C["⚙️ GitHub Actions"]
+D["🔨 Maven Build"]
+E["🧪 Selenium Tests"]
+F["📊 Generate ChainTest Report"]
+G["📦 ZIP Report"]
+H["📧 Email Report"]
+I["👥 Stakeholders"]
 
--->
-
-GitHub
-
--->
-
-GitHub Actions
-
--->
-
-Maven Build
-
--->
-
-Selenium Tests
-
--->
-
-ChainTest Report
-
--->
-
-ZIP
-
--->
-
-Email
-
--->
-
-Stakeholders
+A --> B
+B --> C
+C --> D
+D --> E
+E --> F
+F --> G
+G --> H
+H --> I
 ```
 
 ## ☁️ Deployment Architecture
 
 ```mermaid
+flowchart TD
 
-graph TD
+A["Developer"]
+B["GitHub Repository"]
+C["CI/CD Server"]
+D["Automation Framework"]
+E["ChainTest Report"]
+F["ZIP Archive"]
+G["SMTP Server"]
+H["Recipients"]
 
-Developer
-
--->
-
-GitHub Repository
-
--->
-
-CI/CD Server
-
--->
-
-Automation Framework
-
--->
-
-ChainTest Report
-
--->
-
-ZIP Archive
-
--->
-
-SMTP Server
-
--->
-
-Recipients
+A --> B
+B --> C
+C --> D
+D --> E
+E --> F
+F --> G
+G --> H
 ```
-
-## 🛡️ Security Flow
+## 🛡️ Security Architecture
 
 ```mermaid
+flowchart LR
 
-graph LR
+A["Credentials"]
+B["SMTP Authentication"]
+C["TLS Encryption"]
+D["Gmail SMTP"]
+E["Recipient"]
 
-Credentials
-
--->
-
-SMTP Authentication
-
--->
-
-TLS Encryption
-
--->
-
-Gmail SMTP
-
--->
-
-Recipient
+A --> B
+B --> C
+C --> D
+D --> E
 ```
+## 🏛️ Enterprise Solution Architecture
+
+```mermaid
+flowchart TD
+
+A["QA Engineer"]
+B["Selenium TestNG"]
+C["ChainTest Reporter"]
+D["Report Folder"]
+E["ZIP Utility"]
+F["Mail Sender"]
+G["SMTP Server"]
+H["Stakeholders"]
+
+A --> B
+B --> C
+C --> D
+D --> E
+E --> F
+F --> G
+G --> H
+```
+
 # 🔄 End-to-End Workflow
 
 mermaid
