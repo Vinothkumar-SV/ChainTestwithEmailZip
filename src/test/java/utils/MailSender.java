@@ -21,7 +21,7 @@ public class MailSender {
 
 	public static void sendMailWithAttachment(File zipFilePath) {
 		String from = "vinothkumarsv9@gmail.com";
-		String password = "vgyr ksvz lwiu bjfv";
+		String password = "gezi uzis asst kgev";
 		String to = "vinothkumar.sanmugaraj@testleaf.com";
 		String subject = "TestNG Report";
 		String body = "Please find the attached TestNG Report ZIP.";
